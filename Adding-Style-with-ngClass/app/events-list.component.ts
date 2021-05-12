@@ -19,4 +19,11 @@ export class EventsListComponent {
     {name:'Future Conf (Location/Url TBD)', date: '6/10/2037', time: '8am'},
     {name:'UN Angular Summit', date: '6/10/2037', time: '8am', location: {address: 'The UN Angular Center', city: 'New York', country: 'USA'}, format:"InPerson"}
   ]
+  getColor(eventFormat){
+    if (eventFormat === 'InPerson')
+      return 'in-person'
+    if (eventFormat === 'Online')
+      return  'online'
+    return 'tbd'
+  }
 }
