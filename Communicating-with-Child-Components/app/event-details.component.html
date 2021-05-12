@@ -9,6 +9,6 @@
     Time: {{event.time}}
   </div>
   <div>
-    Address: {{event.location.address}}, {{event.location.city}}, {{event.location.country}}
+    Address: <show-address [address]="event.location"></show-address>
   </div>
 </div>
