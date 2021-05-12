@@ -15,9 +15,9 @@
       <tr *ngFor="let event of events">
         <td>{{event.name}}</td>
         <td>{{event.date}} </td>      
-        <td>{{event.location.address}}</td>
-        <td>{{event.location.city}}</td>
-        <td>{{event.location.country}}</td>
+        <td>{{event.location?.address}}</td>
+        <td>{{event.location?.city}}</td>
+        <td>{{event.location?.country}}</td>
       </tr>
     </tbody>
   </table>
