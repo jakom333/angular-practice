@@ -35,15 +35,15 @@ export class EventService {
     ]
 
     getEvent(eventId: number) {
-        return this.EVENTS.find(event => event.id === eventId)
+        return this.EVENTS.find(event => event.id === eventId);
     }
 
-    getEvents(): Observable<any> {
-        const subject = new Subject<any>();
+    getEvents() {
+        const subject = new Subject();
         setTimeout(() => {
             subject.next(this.EVENTS);
             subject.complete();
-        }, 3000);
+        }, 1000);
         return subject;
     }
 }
