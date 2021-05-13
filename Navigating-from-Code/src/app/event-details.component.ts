@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {EventService} from './event.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'event-details',
@@ -25,16 +25,16 @@ import {ActivatedRoute} from '@angular/router';
 export class EventDetailsComponent {
     event: any;
 
-    constructor(private eventService: EventService, private route: ActivatedRoute) {
+    constructor(private eventService: EventService, private activatedRoute: ActivatedRoute, private router: Router) {
 
     }
 
     ngOnInit() {
-        this.event = this.eventService.getEvent(+this.route.snapshot.params['eventId']);
+        this.event = this.eventService.getEvent(+this.activatedRoute.snapshot.params['eventId']);
     }
 
-    returnToEvents(){
-
+    returnToEvents() {
+        this.router.navigate(['/events']);
     }
 
 }
