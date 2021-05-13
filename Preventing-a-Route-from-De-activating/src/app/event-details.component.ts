@@ -42,7 +42,7 @@ export class EventDetailsComponent {
     }
 
     toggleReviewed(){
-        console.log('Hi');
+        this.reviewed = !this.reviewed;
     }
 
 }
