@@ -21,6 +21,13 @@ import {EventService} from './event.service';
     `]
 })
 export class CreateEventComponent implements OnInit {
+    name: string;
+    date: string;
+    time: string;
+    address: string;
+    city: string;
+    country: string;
+
     constructor(private eventService: EventService, private router: Router) {
 
     }
@@ -30,5 +37,11 @@ export class CreateEventComponent implements OnInit {
 
     cancel() {
         this.router.navigate(['/events']);
+    }
+
+    save(formValues: any) {
+        this.eventService.saveEvent(formValues);
+        this.router.navigate(['/events']);
+        console.log(formValues);
     }
 }

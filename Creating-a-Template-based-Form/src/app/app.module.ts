@@ -7,6 +7,7 @@ import {EventService} from './event.service';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import {CreateEventComponent} from './create-event.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import {CreateEventComponent} from './create-event.component';
     ],
     imports: [
         BrowserModule,
+        FormsModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [EventService],
