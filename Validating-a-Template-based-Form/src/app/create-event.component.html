@@ -1,32 +1,47 @@
 <div>
     <form #createForm='ngForm' (ngSubmit)="save(createForm.value)">
-        <div class="form-group">
+        <div class="form-group"
+             [ngClass]="{'error': createForm.controls.name?.invalid && createForm.controls.name?.touched}">
             <label for="name">Event Name: </label>
-            <input [(ngModel)]="name" name="name" id="name" type="text"/>
+            <input [(ngModel)]="name" name="name" id="name" type="text" required/>
+            <em *ngIf="createForm.controls.name?.invalid && createForm.controls.name?.touched">Required</em>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+             [ngClass]="{'error': createForm.controls.date?.invalid && createForm.controls.date?.touched}">
             <label for="date">Date: </label>
-            <input [(ngModel)]="date" name="date" id="date" type="text"/>
+            <input [(ngModel)]="date" name="date" id="date" type="text" required/>
+            <em *ngIf="createForm.controls.date?.invalid && createForm.controls.date?.touched">Required</em>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+             [ngClass]="{'error': createForm.controls.time?.invalid && createForm.controls.time?.touched}">
             <label for="time">Time: </label>
-            <input [(ngModel)]="time" name="time" id="time" type="text"/>
+            <input [(ngModel)]="time" name="time" id="time" type="text" required/>
+            <em *ngIf="createForm.controls.time?.invalid && createForm.controls.time?.touched">Required</em>
         </div>
         <div ngModelGroup="location">
-        <div class="form-group">
-            <label for="address">Address: </label>
-            <input [(ngModel)]="address" name="address" id="address" type="text"/>
+            <div class="form-group"
+                 [ngClass]="{'error': createForm.controls.location?.controls.address?.invalid && createForm.controls.location?.controls.address?.touched}">
+                <label for="address">Address: </label>
+                <input [(ngModel)]="address" name="address" id="address" type="text" required/>
+                <em *ngIf="createForm.controls.location?.controls.address.invalid && createForm.controls.location?.controls.address.touched">Required</em>
+            </div>
+            <div class="form-group"
+                 [ngClass]="{'error': createForm.controls.location?.controls.city?.invalid && createForm.controls.location?.controls.city?.touched}">
+                <label for="city">City: </label>
+                <input [(ngModel)]="city" name="city" id="city" type="text" required/>
+                <em *ngIf="createForm.controls.location?.controls.city?.invalid && createForm.controls.location?.controls.city?.touched">Required</em>
+            </div>
+            <div class="form-group"
+                 [ngClass]="{'error': createForm.controls.location?.controls.country?.invalid && createForm.controls.location?.controls.country?.touched}">
+                <label for="country">Country: </label>
+                <input [(ngModel)]="country" name="country" id="country" type="text" required pattern="[A-Z]{2}"/>
+                <em *ngIf="createForm.controls.location?.controls.country?.invalid && createForm.controls.location?.controls.country?.touched">Required</em>
+                <br>
+                <em *ngIf="createForm.controls.location?.controls.country.value && createForm.controls.location?.controls.country.errors?.pattern && createForm.controls.location?.controls.country.touched">Must
+                    be a two-letter country code</em>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="city">City: </label>
-            <input [(ngModel)]="city" name="city" id="city" type="text"/>
-        </div>
-        <div class="form-group">
-            <label for="country">Country: </label>
-            <input [(ngModel)]="country" name="country" id="country" type="text"/>
-        </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid">Save</button>
         <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
     </form>
 </div>

@@ -18,6 +18,8 @@ import {EventService} from './event.service';
         .form-group {
             margin-top: 5px;
         }
+        em {color:#E05C65; padding-left:10px;}
+        .error input {background-color:#E3C3C5;}
     `]
 })
 export class CreateEventComponent implements OnInit {
