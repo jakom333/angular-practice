@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 
 import {EventService} from './event.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {requireWeekday} from './weekday.validator';
 
 @Component({
     selector: 'create-event',
@@ -34,7 +35,7 @@ export class CreateEventComponent implements OnInit {
     createForm: FormGroup;
     location: FormGroup;
     name: FormControl = new FormControl('', Validators.required);
-    date: FormControl = new FormControl('', Validators.required);
+    date: FormControl = new FormControl('', [Validators.required, requireWeekday]);
     time: FormControl = new FormControl('', Validators.required);
     address: FormControl = new FormControl('', Validators.required);
     city: FormControl = new FormControl('', Validators.required);
