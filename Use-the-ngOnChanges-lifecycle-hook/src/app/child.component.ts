@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
     selector: 'child',
@@ -10,11 +10,15 @@ import {Component, Input} from '@angular/core';
     `
 })
 
-export class ChildComponent {
+export class ChildComponent implements OnChanges {
     @Input() quantity: number;
     squaredQuantity: number;
 
     constructor() {
+    }
+
+    ngOnChanges(): any {
+        this.squaredQuantity = this.quantity * this.quantity;
     }
 
 };
