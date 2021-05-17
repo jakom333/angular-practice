@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'parent',
@@ -15,22 +15,41 @@ import { Component } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
     movies = [
-        { name:  "Star Wars Episode X", rating: "PG" },
-        { name:  "Rocky XV", rating: "PG-13" },
-        { name:  "Jaws the Revenge", rating: "R" },
-        { name:  "Avengers 6 - The Marriage of the Hulk", rating: "PG-13" },
-        { name:  "Finding Dory's Grandkids", rating: "G" },
+        {name: "Star Wars Episode X", rating: "PG"},
+        {name: "Rocky XV", rating: "PG-13"},
+        {name: "Jaws the Revenge", rating: "R"},
+        {name: "Avengers 6 - The Marriage of the Hulk", rating: "PG-13"},
+        {name: "Finding Dory's Grandkids", rating: "G"},
     ]
 
     constructor() {
     }
 
-    sortAsc() {
-        // implement
+    ngOnInit(): void {
     }
 
-    sortDesc() {
-        // implement
+    sortAsc(): void {
+        this.movies.sort((a, b) => {
+            if (a.rating > b.rating) {
+                return 1;
+            }
+            if (a.rating < b.rating) {
+                return -1;
+            }
+            return 0;
+        });
+    }
+
+    sortDesc(): void {
+        this.movies.sort((a, b) => {
+            if (a.rating < b.rating) {
+                return 1;
+            }
+            if (a.rating > b.rating) {
+                return -1;
+            }
+            return 0;
+        });
     }
 
 
