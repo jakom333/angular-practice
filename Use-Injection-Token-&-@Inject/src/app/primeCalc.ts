@@ -1,6 +1,6 @@
 export default () => {
     window['primeCalc'] = {
-        calculatePrime: function () {
+        calculatePrime:  () => {
             return 5;
         }
     };

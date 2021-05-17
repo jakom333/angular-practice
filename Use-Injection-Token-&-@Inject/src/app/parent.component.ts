@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {PRIME_CALC_TOKEN} from './primeCalc.service';
 
 @Component({
     selector: 'parent',
@@ -11,16 +12,16 @@ import {Component, OnInit} from '@angular/core';
     `
 })
 export class ParentComponent implements OnInit {
-    prime;
+    prime: any;
 
-    constructor() {
+    constructor(@Inject(PRIME_CALC_TOKEN) private primeCalc: any) {
     }
 
     ngOnInit(): void {
     }
 
-    getPrime() {
-        //this.prime =
+    getPrime(): void {
+        this.prime = this.primeCalc.calculatePrime();
     }
 
 }

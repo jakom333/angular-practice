@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
 import {ParentComponent} from './parent.component';
+import {PRIME_CALC_TOKEN} from './primeCalc.service';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,9 @@ import {ParentComponent} from './parent.component';
         BrowserModule,
         FormsModule,
     ],
-    providers: [],
+    providers: [
+        {provide: PRIME_CALC_TOKEN, useValue: window['primeCalc']}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
