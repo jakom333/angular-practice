@@ -20,21 +20,23 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ParentComponent implements OnInit {
     movies = [
-        {name: "Star Wars Episode X", rating: "PG"},
-        {name: "Rocky XV", rating: "PG-13"},
-        {name: "Jaws the Revenge", rating: "R"},
-        {name: "Avengers 6 - The Marriage of the Hulk", rating: "PG-13"},
-        {name: "Finding Dory's Grandkids", rating: "G"},
-    ]
+        {name: 'Star Wars Episode X', rating: 'PG'},
+        {name: 'Rocky XV', rating: 'PG-13'},
+        {name: 'Jaws the Revenge', rating: 'R'},
+        {name: 'Avengers 6 - The Marriage of the Hulk', rating: 'PG-13'},
+        {name: "Finding Dory's Grandkids", rating: 'G'},
+    ];
+    displayedMovies;
 
     constructor() {
+        this.displayedMovies = this.movies.slice(0);
     }
 
     ngOnInit(): void {
     }
 
-    filter(rating) {
-
+    filter(rating: string): any {
+        this.displayedMovies = this.movies.filter(movie => movie.rating === rating);
     }
 
 }
