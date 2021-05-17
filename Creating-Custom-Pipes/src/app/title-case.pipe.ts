@@ -9,4 +9,4 @@ export class TitleCasePipe implements PipeTransform {
         const caseWords = words.map(word => word[0].toLocaleUpperCase() + word.slice(1));
         return caseWords.join(' ');
     }
-};
+}
