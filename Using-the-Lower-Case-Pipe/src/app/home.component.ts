@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
     selector: 'my-home',
     template: `
-
+        <p>{{myText | lowercase}}</p>
     `
 })
 
