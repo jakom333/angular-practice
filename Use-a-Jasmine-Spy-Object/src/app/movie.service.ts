@@ -10,14 +10,14 @@ export class MovieService {
         this.movieName = name;
     }
 
-    addCastMember(name: string, part: string, actorService: ActorService) {
+    addCastMember(name: string, part: string, actorService: ActorService): any {
         const dup = this.castMembers.some((member: { name: string; part: string; }) => {
             return member.name === name || member.part === part;
         });
 
         const ok = actorService.canAddMovieToActor(name, this.movieName);
 
-        if (!dup && ok) {
+        if (!dup || ok) {
             this.castMembers.push({name, part});
         }
     }

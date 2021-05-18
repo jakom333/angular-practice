@@ -1,4 +1,4 @@
-import {MovieService} from './movie.service';
+import { MovieService } from './movie.service';
 
 describe('MovieService', () => {
     let movieService: MovieService;
@@ -8,8 +8,14 @@ describe('MovieService', () => {
     });
 
     it('adding a cast member increases the cast member count by one', () => {
-        movieService.addCastMember('Sylveter', 'Rambo');
+        const mockActorService = jasmine.createSpyObj('actorSvc', ['canAddMovieToActor'])
+        mockActorService.canAddMovieToActor.and.returnValue(true);
+
+        movieService.addCastMember('Sylvester', 'Rambo', mockActorService);
 
         expect(movieService.castMembers.length).toBe(1);
+
     });
+
+
 });
