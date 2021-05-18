@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'parent',
@@ -12,11 +12,12 @@ import {Component, OnInit} from '@angular/core';
         <div style="display:none">The Odd Couple</div>
         <div style="display:none">You've Got Mail</div>
         <div>The greatest movie of all time: {{greatest}}</div>
-        <button class="btn btn-primary" (click)="reveal()">Click to Show</button>
+        <button class="btn btn-primary" >Click to Show</button>
     `
 })
 export class ParentComponent implements OnInit {
     greatest: string;
+    @ViewChild()
 
     constructor() {
     }
@@ -24,8 +25,8 @@ export class ParentComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    reveal () {
-        this.greatest = ;
-    }
+    // reveal () {
+    //     this.greatest = ;
+    // }
 
 }
