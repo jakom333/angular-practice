@@ -1,20 +1,20 @@
 import {MovieService} from './movie.service';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import {of} from 'rxjs';
 
 
 describe('MovieService', () => {
     let movieService: MovieService;
-    let mockHttp;
+    let mockHttp: any;
 
     beforeEach(() => {
-        // create mock http here
+        mockHttp = jasmine.createSpyObj('http', ['post']);
         movieService = new MovieService(mockHttp);
-    })
+    });
 
     it('adding a cast member increases the cast member count by one', () => {
+        mockHttp.post.and.returnValue(of(true));
 
-        movieService.addCastMember('Rambo I', 'Sylvester', 'Rambo');
+        movieService.addCastMember('Rambo 1', 'Sylvester', 'Rambo');
 
         expect(movieService.castMembers.length).toBe(1);
 

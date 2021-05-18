@@ -10,14 +10,14 @@ export class MovieService {
     constructor(private http: HttpClient) {
     }
 
-    addCastMember(name: string, part: string): void {
+    addCastMember(movieName: string, name: string, part: string): void {
         const dup = this.castMembers.some((member: { name: string; part: string; }) => {
             return member.name === name || member.part === part;
         });
 
         if (!dup) {
             this.castMembers.push({name, part});
-            this.storeNewCastMember(this.movieName, name, part).subscribe();
+            this.storeNewCastMember(movieName, name, part).subscribe();
         }
     }
 
