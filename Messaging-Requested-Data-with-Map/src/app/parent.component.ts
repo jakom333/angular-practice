@@ -21,10 +21,13 @@ export class ParentComponent {
     }
 
     makeRequest(): void {
-        this.http.get('http://swapi.dev/api/films/').pipe(map((response: any) => {
-            return response.results;
-        })).subscribe((data: any) => {
-            this.movieList = data;
-        });
+        this.http.get('http://swapi.dev/api/films/')
+            .pipe(
+                map((response: any) => {
+                    return response.results;
+                }))
+            .subscribe((data: any) => {
+                this.movieList = data;
+            });
     }
 }
