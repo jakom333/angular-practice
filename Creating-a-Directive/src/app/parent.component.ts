@@ -13,7 +13,7 @@ import {Component, OnInit} from '@angular/core';
         <div hide>Ferris Bueller's Day Off</div>
     `,
     styles: [
-        'div {width: 250px; margin-bottom: 10px; background-color: black; padding: 4px}'
+        'div {width: 250px; margin-bottom: 10px; color: white; background-color: black; padding: 4px}'
     ]
 })
 export class ParentComponent implements OnInit {
