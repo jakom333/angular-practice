@@ -17,18 +17,19 @@ import {map} from 'rxjs/operators';
     `
 })
 export class ParentComponent {
-    appid = "69bc9bb1bbaa496601358677ea57a017";
-    city;
-    forecast;
+    appid = '69bc9bb1bbaa496601358677ea57a017';
+    city: any;
+    forecast: any;
 
     constructor(private http: HttpClient) {
     }
 
     makeRequest(): void {
-        this.http.get().pipe(map((response: any) => {
-                return response.weather[0].description;
-            })
-        )
+        this.http.get('https://api.openweathermap.org/data/2.5/weather?q=${this.city}&APPID=${this.appid}')
+            .pipe(map((response: any) => {
+                    return response.weather[0].description;
+                })
+            )
             .subscribe((forecast: any) => {
                 this.forecast = forecast;
             });
