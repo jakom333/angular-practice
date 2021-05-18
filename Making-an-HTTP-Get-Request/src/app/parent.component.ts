@@ -15,11 +15,14 @@ import {map} from 'rxjs/operators';
     `
 })
 export class ParentComponent {
-    movieList;
+    movieList: string[];
 
     constructor(private http: HttpClient) {
     }
 
-    makeRequest() {
+    makeRequest(): void {
+        this.http.get('http://swapi.dev/api/films/').subscribe((data: any) => {
+            this.movieList = data.results;
+        });
     }
 }
