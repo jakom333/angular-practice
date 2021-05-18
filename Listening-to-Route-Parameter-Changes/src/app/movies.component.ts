@@ -22,13 +22,17 @@ export class MoviesComponent implements OnInit {
         {name: "E.T.", rating: 'R', id: 3},
         {name: "Teen Wolf", rating: 'G', id: 4},
         {name: "Ferris Bueller's Day Off", rating: 'G', id: 5},
-    ]
+    ];
     currentMovie: any;
 
     constructor(private route: ActivatedRoute) {
     }
 
     ngOnInit(): void {
+        this.route.params.forEach((params: Params) => {
+            console.log(params);
+            this.currentMovie = this.movies.filter(movie => movie.id === +params['id'])[0];
+        });
     }
 
 }
