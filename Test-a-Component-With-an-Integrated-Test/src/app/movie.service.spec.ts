@@ -8,16 +8,16 @@ describe('MovieComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [],
+            declarations: [MovieComponent],
             providers: []
         })
             .compileComponents().then(() => {
-            fixture =
+            fixture = TestBed.createComponent(MovieComponent);
         });
     }));
 
     it('should display the movies', () => {
-
+        fixture.detectChanges();
 
         expect(fixture.debugElement.nativeElement.textContent).toContain('Rambo');
         expect(fixture.debugElement.nativeElement.textContent).toContain('Star Wars');
